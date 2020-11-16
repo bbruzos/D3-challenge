@@ -125,5 +125,30 @@ data.forEach(d => {
     .attr("dy", d => yLinearScale(d[CurrentYAxis])+5) 
     .classed('stateAcc', true);
 
-    
+  // 3-axis label group for x-axis
+  var xLabels = chartGroup.append("g")
+    .attr("transform", `translate(${width / 2}, ${height + 20})`);
+
+  var PovertyLabel = xLabels.append("text")
+    .attr("x", 0)
+    .attr("y", 20)
+    .attr("value", "income")
+    .classed("active blue", true)
+    .text("In Poverty (%)");
+
+  // 3-axis label group for y-axis
+  var yLabels = chartGroup.append("g")
+  .attr("transform", "rotate(-90)")
+
+  var HealthcareLabel = yLabels.append("text")
+    .attr("y", -50)
+    .attr("x", -(height/2))
+    .attr("dy", "1em")
+    .attr("value", "healthcare") 
+    .classed("active green", true)
+    .text("Lacks Healthcare (%)");
+
+
+  
+
 });
