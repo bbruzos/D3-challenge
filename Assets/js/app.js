@@ -24,8 +24,8 @@ var chartGroup = svg.append("g")
 .attr("transform", 'translate(${margin.left}, ${margin.top})');
 
 // Initial Params
-var CurrentXAxis = "Poverty";
-var CurrentYAxis = "Healthcare";
+var CurrentXAxis = "poverty";
+var CurrentYAxis = "healthcare";
 
 // Creating X-scale
 function xScale(data, CurrentXAxis) {
@@ -93,4 +93,8 @@ data.forEach(d => {
   var xLinearScale = xScale(data, CurrentXAxis);
   // func for yLinearScale
   var yLinearScale = yScale(data, CurrentYAxis);
+
+  // Initialize axis func's
+  var bottomAxis = d3.axisBottom(xLinearScale);
+  var leftAxis = d3.axisLeft(yLinearScale);
 });
