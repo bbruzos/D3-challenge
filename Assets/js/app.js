@@ -53,7 +53,7 @@ function renderXCircles(circleGroup, switchX, CurrentXAxis) {
     circleGroup.transition()
     .duration(1000)
     .attr("cx", d => switchX(d[CurrentXAxis]))
-    .attr("dx", d => switchX[CurrentXAxis]));
+    .attr("dx", d => switchX[CurrentXAxis]);
 
   return circleGroup;
 }
@@ -63,7 +63,7 @@ function renderYCircles(circleGroup, switchY, CurrentYAxis) {
     circleGroup.transition()
     .duration(1000)
     .attr("cy", d => switchY(d[CurrentYAxis]))
-    .attr("dy", d => switchY[CurrentYAxis]));
+    .attr("dy", d => switchY[CurrentYAxis]);
 
   return circleGroup;
 }
@@ -149,6 +149,6 @@ data.forEach(d => {
     .text("Lacks Healthcare (%)");
 
 
-  
-
+}).catch(function(error) {
+    console.log(error);
 });
