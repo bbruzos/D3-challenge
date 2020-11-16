@@ -106,6 +106,24 @@ data.forEach(d => {
     var yAxis = chartGroup.append("g")
     .call(leftAxis);
 
-    
+  // Append circle groups
+  var circleGroup = chartGroup.selectAll("circle")
+    .data(data)
+    .enter()
+    .append("g");
 
+  var circles = circleGroup.append("circle")
+    .attr("cx", d => xLinearScale(d[CurrentXAxis]))
+    .attr("cy", d => yLinearScale(d[CurrentYAxis]))
+    .attr("r", 15)
+    .classed('stateCirc', true);
+
+  // Insert circle text
+  var circleText = circleGroup.append("text")
+    .text(d => d.abbr)
+    .attr("dx", d => xLinearScale(d[CurrentXAxis]))
+    .attr("dy", d => yLinearScale(d[CurrentYAxis])+5) 
+    .classed('stateAcc', true);
+
+    
 });
