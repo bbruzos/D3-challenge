@@ -19,3 +19,14 @@ var svg = d3.select("#scatter")
 .attr("width", svgWidth)
 .attr("height", svgHeight + 50);
 
+// Add SVG group
+var chartGroup = svg.append("g")
+.attr("transform", 'translate(${margin.left}, ${margin.top})');
+
+// Initial Params
+var CurrentXAxis = "Poverty"
+var CurrentYAxis = "Healthcare"
+
+
+
+
