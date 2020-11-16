@@ -69,6 +69,8 @@ function renderYCircles(circleGroup, switchY, CurrentYAxis) {
 }
 
 // Retrieve Data 
+d3.csv("data.csv").then(function(data, err) {
+    if (err) throw err;
 data.forEach(d => {
     d.poverty = +d.poverty;
     d.povertyMoe = +d.povertyMoe;
@@ -86,3 +88,9 @@ data.forEach(d => {
     d.smokesLow = +d.smokesLow;
     d.smokesHigh = +d.smokesHigh;
   });
+
+  // func for xLinearScale 
+  var xLinearScale = xScale(data, CurrentXAxis);
+  // func for yLinearScale
+  var yLinearScale = yScale(data, CurrentYAxis);
+});
