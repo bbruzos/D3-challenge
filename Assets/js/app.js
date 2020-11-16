@@ -97,4 +97,15 @@ data.forEach(d => {
   // Initialize axis func's
   var bottomAxis = d3.axisBottom(xLinearScale);
   var leftAxis = d3.axisLeft(yLinearScale);
+
+  // add x-axis & y-axis
+  var xAxis = chartGroup.append("g")
+    .attr("transform", `translate(0, ${height})`)
+    .call(bottomAxis);
+
+    var yAxis = chartGroup.append("g")
+    .call(leftAxis);
+
+    
+
 });
