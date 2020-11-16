@@ -37,3 +37,12 @@ function xScale(data, CurrentXAxis) {
 }
 
 // Creating Y-scale
+function yScale(data, CurrentYAxis) {
+
+    var yLinearScale = d3.scaleLinear()
+      .domain([d3.min(data, d => d[CurrentYAxis])-2,d3.max(data, d => d[CurrentYAxis])+2])
+      .range([height, 0]);
+  
+    return yLinearScale;
+  
+}
