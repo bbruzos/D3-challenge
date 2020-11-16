@@ -34,6 +34,7 @@ function xScale(data, CurrentXAxis) {
       .domain([d3.min(data, d => d[CurrentXAxis])-2,d3.max(data, d => d[CurrentXAxis])+2])
       .range([height, 0]);
 
+    return yLinearScale
 }
 
 // Creating Y-scale
@@ -45,4 +46,14 @@ function yScale(data, CurrentYAxis) {
   
     return yLinearScale;
   
+}
+
+// Update circle group with a transition for X variable
+function renderXCircles(circleGroup, switchX, CurrentXAxis) {
+    circleGroup.transition()
+    .duration(1000)
+    .attr("cx", d => switchX(d[CurrentXAxis]))
+    .attr("dx", d => switchX[CurrentXAxis]));
+
+  return circleGroup;
 }
