@@ -57,3 +57,13 @@ function renderXCircles(circleGroup, switchX, CurrentXAxis) {
 
   return circleGroup;
 }
+
+// Update circle group with a transition for Y variable
+function renderYCircles(circleGroup, switchY, CurrentYAxis) {
+    circleGroup.transition()
+    .duration(1000)
+    .attr("cy", d => switchY(d[CurrentYAxis]))
+    .attr("dy", d => switchY[CurrentYAxis]));
+
+  return circleGroup;
+}
