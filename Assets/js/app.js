@@ -52,4 +52,48 @@ function yScale(censusData, chosenYAxis) {
 return yLinearScale;
 }
 
+// Update x-axis
+function renderXAxis(newXScale, xAxis) {
+    var bottomAxis = d3.axisBottom(newXScale);
+  
+    xAxis.transition()
+      .duration(1000)
+      .call(bottomAxis);
+  
+    return xAxis;
+  }
 
+// Update y-axis
+function renderYAxis(newYScale, yAxis) {
+    var leftAxis = d3.axisLeft(newYScale);
+  
+    yAxis.transition()
+      .duration(1000)
+      .call(leftAxis);
+  
+    return yAxis;
+  }
+
+// Updating circles 
+function renderCircles(circlesGroup, newXScale, chosenXAxis, newYScale, chosenYAxis) {
+
+    circlesGroup.transition()
+      .duration(1000)
+      .attr('cx', data => newXScale(data[chosenXAxis]))
+      .attr('cy', data => newYScale(data[chosenYAxis]))
+
+    return circlesGroup;
+}
+  
+// Update State labels
+function renderText(textGroup, newXScale, chosenXAxis, newYScale, chosenYAxis) {
+
+    textGroup.transition()
+      .duration(1000)
+      .attr('x', d => newXScale(d[chosenXAxis]))
+      .attr('y', d => newYScale(d[chosenYAxis]));
+
+    return textGroup
+}
+
+// 
